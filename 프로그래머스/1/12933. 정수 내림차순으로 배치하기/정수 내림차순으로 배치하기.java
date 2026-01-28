@@ -6,6 +6,5 @@ class Solution {
         String[] digits = String.valueOf(n).split("");
         Arrays.sort(digits, Collections.reverseOrder());
         return Long.parseLong(String.join("",digits));
-    
     }
 }
