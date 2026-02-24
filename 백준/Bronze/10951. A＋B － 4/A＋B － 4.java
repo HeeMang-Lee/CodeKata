@@ -1,15 +1,18 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        String line;
 
-        while (scanner.hasNextInt()) { // 입력이 더 있을 동안 계속 반복
-            int a = scanner.nextInt();
-            int b = scanner.nextInt();
-            System.out.println(a + b);
+        while ((line = br.readLine()) != null ) {
+            StringTokenizer st = new StringTokenizer(line);
+            int a = Integer.parseInt(st.nextToken());
+            int b = Integer.parseInt(st.nextToken());
+            sb.append(a+b).append('\n');
         }
-
-        scanner.close();
+        System.out.print(sb);
     }
 }
