@@ -1,21 +1,26 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();  
-
-        for (int i = 1; i <= N; i++) {
-            // 공백 출력
-            for (int j = 1; j <= N - i; j++) {
-                System.out.print(" ");
-            }
-            // 별 출력
-            for (int j = 1; j <= i; j++) {
-                System.out.print("*");
-            }
-            // 줄바꿈
-            System.out.println();
-        }
+    static StringBuilder sb = new StringBuilder();
+    
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());  
+        drawStar(n,1);
+        System.out.print(sb);
     }
+    
+    public static void drawStar(int n,int current) {
+        if (current > n) return;
+        for (int i = 0; i < n - current; i++) {
+            sb.append(' ');
+        }
+        for (int i = 0; i < current; i++) {
+            sb.append('*');
+        }
+        sb.append('\n');
+        drawStar(n,current+1);    
+    }
+
 }
